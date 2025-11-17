@@ -10,7 +10,7 @@
     "build": "cd client && npm run build",
     "start": "cd server && npm start",
     "install-deps": "npm install && cd server && npm install && cd client && npm install",
-    "vercel-build": "cd client && npm install && npm run build"
+    "vercel-build": "npm install && cd client && npm install && npm run build"
   },
   "keywords": ["portfolio", "fullstack", "react", "node", "liquid-glass", "ui-ux"],
   "author": "Nihan Najeeb P",
