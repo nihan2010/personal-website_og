@@ -1,0 +1,21 @@
+{
+  "short_name": "Nihan Najeeb P",
+  "name": "Nihan Najeeb P - UI/UX Designer & Frontend Developer",
+  "description": "15-year-old UI/UX Designer & Frontend Developer from Kerala, India. Crafting beautiful and functional digital experiences.",
+  "icons": [
+    {
+      "src": "https://i.ibb.co/HLzPtDNQ/nihandp.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://i.ibb.co/HLzPtDNQ/nihandp.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#667eea",
+  "background_color": "#0a0a1f"
+}

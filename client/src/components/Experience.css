@@ -1,0 +1,258 @@
+.experience {
+  background: transparent;
+  position: relative;
+  color: white;
+}
+
+.experience::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 35% 65%, rgba(255, 236, 210, 0.12) 0%, transparent 60%),
+    radial-gradient(circle at 65% 35%, rgba(252, 182, 159, 0.1) 0%, transparent 60%),
+    radial-gradient(circle at 50% 50%, rgba(254, 225, 64, 0.08) 0%, transparent 70%);
+  backdrop-filter: blur(25px);
+  animation: experienceBackgroundShift 20s ease-in-out infinite;
+}
+
+@keyframes experienceBackgroundShift {
+  0%, 100% {
+    background: 
+      radial-gradient(circle at 35% 65%, rgba(255, 236, 210, 0.12) 0%, transparent 60%),
+      radial-gradient(circle at 65% 35%, rgba(252, 182, 159, 0.1) 0%, transparent 60%);
+  }
+  50% {
+    background: 
+      radial-gradient(circle at 55% 25%, rgba(252, 182, 159, 0.15) 0%, transparent 60%),
+      radial-gradient(circle at 45% 75%, rgba(255, 236, 210, 0.1) 0%, transparent 60%);
+  }
+}
+
+.experience-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+}
+
+.subsection-title {
+  font-size: 2.2rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2rem;
+  filter: drop-shadow(0 0 15px rgba(255, 236, 210, 0.6));
+}
+
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, 
+    rgba(255, 236, 210, 0.8) 0%, 
+    rgba(252, 182, 159, 0.6) 50%, 
+    rgba(254, 225, 64, 0.8) 100%);
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(255, 236, 210, 0.4);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -2rem;
+  top: 0;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 
+    0 0 0 2px rgba(255, 236, 210, 0.4),
+    0 4px 15px rgba(255, 236, 210, 0.3);
+  animation: markerPulse 2s ease-in-out infinite;
+}
+
+@keyframes markerPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 
+      0 0 0 2px rgba(255, 236, 210, 0.4),
+      0 4px 15px rgba(255, 236, 210, 0.3);
+  }
+  50% {
+    transform: scale(1.2);
+    box-shadow: 
+      0 0 0 4px rgba(255, 236, 210, 0.6),
+      0 8px 25px rgba(255, 236, 210, 0.5);
+  }
+}
+
+.timeline-content {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    rgba(255, 255, 255, 0.05) 100%);
+  padding: 2.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  margin-left: 1rem;
+  backdrop-filter: blur(30px);
+  box-shadow: 
+    0 15px 45px rgba(0, 0, 0, 0.2),
+    inset 0 2px 4px rgba(255, 255, 255, 0.1),
+    0 0 30px rgba(255, 236, 210, 0.2);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    rgba(255, 236, 210, 0.3), 
+    rgba(252, 182, 159, 0.3), 
+    rgba(254, 225, 64, 0.3),
+    rgba(255, 236, 210, 0.3));
+  border-radius: 25px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  animation: experienceGlow 3s ease-in-out infinite;
+}
+
+.timeline-content:hover::before {
+  opacity: 1;
+}
+
+.timeline-content:hover {
+  transform: translateY(-10px) scale(1.02) rotateX(5deg);
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.15) 0%, 
+    rgba(255, 255, 255, 0.08) 100%);
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.25),
+    inset 0 2px 4px rgba(255, 255, 255, 0.2),
+    0 0 50px rgba(255, 236, 210, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+@keyframes experienceGlow {
+  0%, 100% { 
+    background: linear-gradient(45deg, 
+      rgba(255, 236, 210, 0.3), 
+      rgba(252, 182, 159, 0.3), 
+      rgba(254, 225, 64, 0.3),
+      rgba(255, 236, 210, 0.3));
+  }
+  50% { 
+    background: linear-gradient(45deg, 
+      rgba(252, 182, 159, 0.3), 
+      rgba(254, 225, 64, 0.3),
+      rgba(255, 236, 210, 0.3), 
+      rgba(252, 182, 159, 0.3));
+  }
+}
+
+.job-title,
+.degree {
+  font-size: 1.4rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 0 10px rgba(79, 172, 254, 0.5));
+}
+
+.company,
+.institution {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.period {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+.description {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-tag {
+  background: linear-gradient(135deg, 
+    rgba(79, 172, 254, 0.2) 0%, 
+    rgba(142, 68, 173, 0.2) 100%);
+  color: rgba(255, 255, 255, 0.95);
+  padding: 0.4rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(79, 172, 254, 0.2);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+  .experience-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .timeline {
+    padding-left: 1.5rem;
+  }
+  
+  .timeline-marker {
+    left: -1.5rem;
+  }
+  
+  .timeline-content {
+    margin-left: 0.5rem;
+    padding: 1.5rem;
+  }
+  
+  .subsection-title {
+    font-size: 1.5rem;
+  }
+}

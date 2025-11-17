@@ -1,0 +1,186 @@
+.about {
+  background: transparent;
+  position: relative;
+  color: white;
+}
+
+.about::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 40%, rgba(67, 227, 123, 0.1) 0%, transparent 60%),
+    radial-gradient(circle at 70% 60%, rgba(79, 172, 254, 0.1) 0%, transparent 60%),
+    radial-gradient(circle at 50% 20%, rgba(142, 68, 173, 0.05) 0%, transparent 70%);
+  backdrop-filter: blur(20px);
+  animation: aboutBackgroundShift 20s ease-in-out infinite;
+}
+
+@keyframes aboutBackgroundShift {
+  0%, 100% {
+    background: 
+      radial-gradient(circle at 30% 40%, rgba(67, 227, 123, 0.1) 0%, transparent 60%),
+      radial-gradient(circle at 70% 60%, rgba(79, 172, 254, 0.1) 0%, transparent 60%);
+  }
+  50% {
+    background: 
+      radial-gradient(circle at 60% 30%, rgba(79, 172, 254, 0.15) 0%, transparent 60%),
+      radial-gradient(circle at 40% 70%, rgba(67, 227, 123, 0.1) 0%, transparent 60%);
+  }
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.about-text p {
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.15rem;
+  line-height: 1.8;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+.about-stats {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, 
+    rgba(79, 172, 254, 0.15) 0%, 
+    rgba(142, 68, 173, 0.1) 50%, 
+    rgba(67, 227, 123, 0.15) 100%);
+  padding: 2.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  text-align: center;
+  backdrop-filter: blur(35px);
+  box-shadow: 
+    0 15px 45px rgba(0, 0, 0, 0.2),
+    inset 0 2px 4px rgba(255, 255, 255, 0.2),
+    0 0 30px rgba(79, 172, 254, 0.2);
+  transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    rgba(79, 172, 254, 0.3) 0deg,
+    rgba(142, 68, 173, 0.3) 120deg,
+    rgba(67, 227, 123, 0.3) 240deg,
+    rgba(79, 172, 254, 0.3) 360deg
+  );
+  animation: statRotate 4s linear infinite;
+  opacity: 0.6;
+}
+
+.stat-card::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+  transition: all 0.8s ease;
+  transform: translate(-50%, -50%);
+}
+
+.stat-card:hover::after {
+  width: 200px;
+  height: 200px;
+}
+
+.stat-card:hover {
+  transform: translateY(-20px) scale(1.08) rotateX(10deg) rotateY(5deg);
+  background: linear-gradient(135deg, 
+    rgba(79, 172, 254, 0.25) 0%, 
+    rgba(142, 68, 173, 0.2) 50%, 
+    rgba(67, 227, 123, 0.25) 100%);
+  box-shadow: 
+    0 30px 70px rgba(0, 0, 0, 0.3),
+    inset 0 2px 4px rgba(255, 255, 255, 0.3),
+    0 0 50px rgba(79, 172, 254, 0.4),
+    0 0 80px rgba(67, 227, 123, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+@keyframes statRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.stat-card h3 {
+  font-size: 3rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 0 15px rgba(79, 172, 254, 0.6));
+}
+
+.stat-card p {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  font-size: 1.1rem;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    transform: translateX(-100%) rotate(45deg);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(100%) rotate(45deg);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .about-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  
+  .stat-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .stat-card h3 {
+    font-size: 2rem;
+  }
+}
