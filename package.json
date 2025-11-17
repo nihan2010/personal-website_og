@@ -1,16 +1,18 @@
 {
   "name": "nihan-najeeb-portfolio",
   "version": "1.0.0",
-  "description": "Portfolio website for Nihan Najeeb P",
+  "description": "Ultra-premium liquid glass portfolio website for Nihan Najeeb P",
   "main": "server/index.js",
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "cd server && npm run dev",
     "client": "cd client && npm start",
     "build": "cd client && npm run build",
-    "install-deps": "npm install && cd server && npm install && cd ../client && npm install"
+    "start": "cd server && npm start",
+    "install-deps": "npm install && cd server && npm install && cd client && npm install",
+    "vercel-build": "cd client && npm install && npm run build"
   },
-  "keywords": ["portfolio", "fullstack", "react", "node"],
+  "keywords": ["portfolio", "fullstack", "react", "node", "liquid-glass", "ui-ux"],
   "author": "Nihan Najeeb P",
   "license": "MIT",
   "devDependencies": {
