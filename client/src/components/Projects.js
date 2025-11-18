@@ -1,81 +1,133 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Projects.css';
 
 const Projects = () => {
+  const [visibleProjects, setVisibleProjects] = useState({});
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleProjects(prev => ({
+              ...prev,
+              [entry.target.dataset.project]: true
+            }));
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    document.querySelectorAll('[data-project]').forEach(el => {
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   const projects = [
     {
-      title: "Royal Decorations Website",
-      description: "A beautiful and responsive website for an event decoration service. Features elegant design, service showcase, gallery, and contact functionality with modern UI/UX principles.",
-      image: "/api/placeholder/400/250",
-      technologies: ["HTML", "CSS", "JavaScript", "Bootstrap", "Responsive Design"],
+      title: "Royal Decorations",
+      description: "Professional website for an event decoration business with responsive image galleries and modern design.",
+      image: "https://nihannajeeb.github.io/portfolio/assets/images/project1.jpg",
+      technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
       liveUrl: "https://royaldecorations.github.io/site/",
       githubUrl: "https://github.com/nihannajeeb/royal-decorations",
-      featured: true
+      category: "Frontend"
     },
     {
-      title: "Personal Portfolio Website",
-      description: "A modern, responsive portfolio website showcasing UI/UX design and development skills. Features smooth animations, clean design, and optimized user experience.",
-      image: "/api/placeholder/400/250",
-      technologies: ["HTML", "CSS", "JavaScript", "Bootstrap", "UI/UX Design"],
+      title: "Portfolio Website",
+      description: "Clean, responsive portfolio showcasing projects and skills with smooth animations.",
+      image: "https://nihannajeeb.github.io/portfolio/assets/images/portfolio.jpg",
+      technologies: ["HTML", "CSS", "JavaScript", "UI/UX"],
       liveUrl: "https://nihannajeeb.github.io/portfolio/",
       githubUrl: "https://github.com/nihannajeeb/portfolio",
-      featured: true
+      category: "Frontend"
     },
     {
-      title: "E-Commerce UI Design",
-      description: "Modern e-commerce website UI design with clean aesthetics, intuitive navigation, and user-friendly shopping experience design.",
-      image: "/api/placeholder/400/250",
-      technologies: ["Figma", "UI/UX Design", "Prototyping", "User Research"],
+      title: "E-Commerce UI",
+      description: "Modern e-commerce interface design with focus on user experience and accessibility.",
+      image: "https://nihannajeeb.github.io/portfolio/assets/images/ecommerce.jpg",
+      technologies: ["Figma", "UI/UX", "Prototyping"],
       liveUrl: "https://figma.com/design-link",
       githubUrl: "https://github.com/nihannajeeb/ecommerce-ui",
-      featured: false
+      category: "Design"
     },
     {
       title: "Restaurant Website",
-      description: "Responsive restaurant website with elegant design, menu showcase, online reservation system, and location integration.",
-      image: "/api/placeholder/400/250",
-      technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+      description: "Full-featured restaurant website with online ordering and menu management.",
+      image: "https://nihannajeeb.github.io/portfolio/assets/images/restaurant.jpg",
+      technologies: ["HTML", "CSS", "JavaScript"],
       liveUrl: "https://restaurant-demo.com",
       githubUrl: "https://github.com/nihannajeeb/restaurant-site",
-      featured: false
-    },
-    {
-      title: "Mobile App UI Kit",
-      description: "Comprehensive UI kit for mobile applications featuring modern components, consistent design system, and multiple screen designs.",
-      image: "/api/placeholder/400/250",
-      technologies: ["Figma", "UI Design", "Design System", "Mobile UX"],
-      liveUrl: "https://figma.com/ui-kit-link",
-      githubUrl: "https://github.com/nihannajeeb/mobile-ui-kit",
-      featured: false
-    },
-    {
-      title: "Landing Page Collection",
-      description: "Collection of modern landing pages for various industries with focus on conversion optimization and user engagement.",
-      image: "/api/placeholder/400/250",
-      technologies: ["HTML", "CSS", "JavaScript", "UI/UX Design"],
-      liveUrl: "https://landing-pages-demo.com",
-      githubUrl: "https://github.com/nihannajeeb/landing-pages",
-      featured: false
+      category: "Frontend"
     }
   ];
-
-  const featuredProjects = projects.filter(project => project.featured);
-  const otherProjects = projects.filter(project => !project.featured);
 
   return (
     <section id="projects" className="section projects">
       <div className="container">
-        <h2 className="section-title">Featured Projects</h2>
+        <div className="section-header">
+          <h2 className="section-title">Recent Work</h2>
+          <p className="section-subtitle">A selection of projects I've worked on</p>
+        </div>
         
-        <div className="featured-projects">
-          {featuredProjects.map((project, index) => (
-            <div key={index} className="project-card featured">
+        <div className="projects-grid">
+          {projects.map((project, index) => (
+            <div 
+              key={index} 
+              className={`project-card ${visibleProjects[index] ? 'visible' : ''}`}
+              data-project={index}
+              style={{ '--delay': `${index * 0.1}s` }}
+            >
               <div className="project-image">
-                <div className="image-placeholder">
-                  <span>Project Image</span>
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  loading="lazy"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.nextSibling.style.display = 'flex';
+                  }}
+                />
+                <div className="image-fallback">
+                  <span>{project.category}</span>
+                </div>
+                <div className="project-overlay">
+                  <div className="overlay-links">
+                    <a 
+                      href={project.liveUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="overlay-link"
+                      aria-label="View live project"
+                    >
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15,3 21,3 21,9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                    </a>
+                    <a 
+                      href={project.githubUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="overlay-link"
+                      aria-label="View source code"
+                    >
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
-              <div className="project-info">
+              
+              <div className="project-content">
+                <div className="project-meta">
+                  <span className="project-category">{project.category}</span>
+                </div>
                 <h3 className="project-title">{project.title}</h3>
                 <p className="project-description">{project.description}</p>
                 <div className="project-technologies">
@@ -83,35 +135,6 @@ const Projects = () => {
                     <span key={techIndex} className="tech-tag">{tech}</span>
                   ))}
                 </div>
-                <div className="project-links">
-                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                    Live Demo
-                  </a>
-                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-                    GitHub
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <h3 className="other-projects-title">Other Notable Projects</h3>
-        <div className="other-projects">
-          {otherProjects.map((project, index) => (
-            <div key={index} className="project-card">
-              <div className="project-header">
-                <h4 className="project-title">{project.title}</h4>
-                <div className="project-links">
-                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">GitHub</a>
-                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">Live</a>
-                </div>
-              </div>
-              <p className="project-description">{project.description}</p>
-              <div className="project-technologies">
-                {project.technologies.map((tech, techIndex) => (
-                  <span key={techIndex} className="tech-tag">{tech}</span>
-                ))}
               </div>
             </div>
           ))}

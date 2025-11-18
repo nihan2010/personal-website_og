@@ -1,5 +1,6 @@
 import React from 'react';
 import './Hero.css';
+import SocialIcon, { GitHubIcon, LinkedInIcon, InstagramIcon, EmailIcon, PhoneIcon } from './SocialIcon';
 
 const Hero = () => {
   const scrollToSection = (sectionId) => {
@@ -15,16 +16,16 @@ const Hero = () => {
         <div className="hero-content">
           <div className="hero-text">
             <h1 className="hero-title">
-              Hi, I'm <span className="highlight">Nihan Najeeb P</span>
+              Hey! I'm <span className="highlight">Nihan</span>
             </h1>
             <p className="hero-subtitle">
-              UI/UX Designer & Frontend Developer
+              15-year-old Web Designer & Developer from Kerala
             </p>
             <p className="hero-description">
-              Crafting beautiful and functional digital experiences. 
-              I turn ideas into reality with code and design. With a strong foundation in modern web 
-              technologies, I am dedicated to creating intuitive, engaging, and visually appealing 
-              digital experiences.
+              I build websites that don't just work, they actually feel good to use! 
+              Started coding at 13 because I was tired of boring websites. Now I'm that teenager 
+              who gets way too excited about smooth animations and clean designs. 
+              Let's create something amazing together!
             </p>
             <div className="hero-buttons">
               <button 
@@ -41,21 +42,31 @@ const Hero = () => {
               </button>
             </div>
             <div className="hero-links">
-              <a href="https://github.com/nihan2010" target="_blank" rel="noopener noreferrer">
-                GitHub
-              </a>
-              <a href="https://www.linkedin.com/in/nihan-najeeb-b287b22b9/" target="_blank" rel="noopener noreferrer">
-                LinkedIn
-              </a>
-              <a href="https://www.instagram.com/nhnneei/" target="_blank" rel="noopener noreferrer">
-                Instagram
-              </a>
-              <a href="mailto:nihannajeebpmkd@gmail.com">
-                Email
-              </a>
-              <a href="tel:+918547137703">
-                Phone
-              </a>
+              <SocialIcon 
+                href="https://github.com/nihan2010" 
+                icon={<GitHubIcon />} 
+                label="GitHub Profile"
+              />
+              <SocialIcon 
+                href="https://www.linkedin.com/in/nihan-najeeb-b287b22b9/" 
+                icon={<LinkedInIcon />} 
+                label="LinkedIn Profile"
+              />
+              <SocialIcon 
+                href="https://www.instagram.com/nhnneei/" 
+                icon={<InstagramIcon />} 
+                label="Instagram Profile"
+              />
+              <SocialIcon 
+                href="mailto:nihannajeebpmkd@gmail.com" 
+                icon={<EmailIcon />} 
+                label="Send Email"
+              />
+              <SocialIcon 
+                href="tel:+918547137703" 
+                icon={<PhoneIcon />} 
+                label="Call Phone"
+              />
             </div>
           </div>
           <div className="hero-visual">

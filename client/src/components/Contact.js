@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Contact.css';
+import SocialIcon, { GitHubIcon, LinkedInIcon, InstagramIcon } from './SocialIcon';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -39,15 +40,18 @@ const Contact = () => {
   return (
     <section id="contact" className="section contact">
       <div className="container">
-        <h2 className="section-title">Get In Touch</h2>
+        <div className="section-header">
+          <h2 className="section-title">Get In Touch</h2>
+          <p className="section-subtitle">Let's build something amazing together</p>
+        </div>
         <div className="contact-content">
           <div className="contact-info">
-            <h3>Let's Connect</h3>
+            <h3>Let's Build Something Cool Together!</h3>
             <p>
-              Have a project in mind or just want to say hi? Feel free to reach out! 
-              I'm always interested in hearing about new opportunities and exciting projects. 
-              Whether you need UI/UX design or frontend development, I'd love to help bring 
-              your ideas to life.
+              Got a wild idea for a website? Want to rant about bad UX design? Or maybe you just 
+              want to chat about the latest CSS tricks? I'm all ears! Whether it's a serious project 
+              or you just need someone to fix your cousin's broken website, let's make something 
+              awesome happen. Fair warning: I might get way too excited about your project!
             </p>
             
             <div className="contact-methods">
@@ -69,15 +73,21 @@ const Contact = () => {
               <div className="contact-method">
                 <h4>Social Links</h4>
                 <div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap'}}>
-                  <a href="https://github.com/nihan2010" target="_blank" rel="noopener noreferrer">
-                    GitHub
-                  </a>
-                  <a href="https://www.linkedin.com/in/nihan-najeeb-b287b22b9/" target="_blank" rel="noopener noreferrer">
-                    LinkedIn
-                  </a>
-                  <a href="https://www.instagram.com/nhnneei/" target="_blank" rel="noopener noreferrer">
-                    Instagram
-                  </a>
+                  <SocialIcon 
+                    href="https://github.com/nihan2010" 
+                    icon={<GitHubIcon />} 
+                    label="GitHub Profile"
+                  />
+                  <SocialIcon 
+                    href="https://www.linkedin.com/in/nihan-najeeb-b287b22b9/" 
+                    icon={<LinkedInIcon />} 
+                    label="LinkedIn Profile"
+                  />
+                  <SocialIcon 
+                    href="https://www.instagram.com/nhnneei/" 
+                    icon={<InstagramIcon />} 
+                    label="Instagram Profile"
+                  />
                 </div>
               </div>
             </div>

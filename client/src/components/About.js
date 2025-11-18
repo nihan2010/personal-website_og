@@ -5,38 +5,39 @@ const About = () => {
   return (
     <section id="about" className="section about">
       <div className="container">
-        <h2 className="section-title">About Me</h2>
+        <div className="section-header">
+          <h2 className="section-title">About</h2>
+          <p className="section-subtitle">Passionate about creating digital experiences</p>
+        </div>
         <div className="about-content">
           <div className="about-text">
             <p>
-              I'm a passionate and self-motivated 15-year-old UI/UX Designer and Frontend Developer 
-              based in Kerala, India. With a strong foundation in modern web technologies, I am 
-              dedicated to creating intuitive, engaging, and visually appealing digital experiences.
+              I'm a 15-year-old web developer and designer from Kerala, passionate about creating 
+              clean, functional, and beautiful digital experiences. What started as curiosity during 
+              the pandemic has evolved into a deep commitment to web development and user experience design.
             </p>
             <p>
-              Currently working as a freelancer, I specialize in crafting beautiful and functional 
-              digital experiences. My approach combines creative design thinking with technical 
-              implementation to deliver solutions that not only look great but also provide 
-              exceptional user experiences.
+              I focus on writing clean, maintainable code and creating intuitive user interfaces. 
+              Every project is an opportunity to solve problems and learn something new. Currently 
+              expanding my skills in React and modern web development practices.
             </p>
             <p>
-              I'm always eager to learn and take on new challenges. Whether it's designing a new 
-              interface or building a responsive website, I bring dedication and creativity to 
-              every project I work on.
+              When I'm not coding, I'm studying design principles, exploring new technologies, 
+              or working on personal projects that challenge my current skill set.
             </p>
           </div>
           <div className="about-stats">
             <div className="stat-card">
-              <h3>15</h3>
-              <p>Years Old</p>
+              <div className="stat-number">2+</div>
+              <div className="stat-label">Years Experience</div>
             </div>
             <div className="stat-card">
-              <h3>90%</h3>
-              <p>UI/UX Proficiency</p>
+              <div className="stat-number">10+</div>
+              <div className="stat-label">Projects Completed</div>
             </div>
             <div className="stat-card">
-              <h3>95%</h3>
-              <p>HTML Proficiency</p>
+              <div className="stat-number">100%</div>
+              <div className="stat-label">Passion Driven</div>
             </div>
           </div>
         </div>

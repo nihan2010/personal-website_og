@@ -1,72 +1,108 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Experience.css';
 
 const Experience = () => {
+  const [visibleItems, setVisibleItems] = useState({});
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleItems(prev => ({
+              ...prev,
+              [entry.target.dataset.item]: true
+            }));
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    document.querySelectorAll('[data-item]').forEach(el => {
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   const experiences = [
     {
-      title: "Freelance UI/UX Designer & Frontend Developer",
-      company: "Self-Employed",
+      title: "Web Developer",
+      company: "Freelance",
       period: "2022 - Present",
-      description: "Working as a freelancer creating beautiful and functional digital experiences. Specializing in UI/UX design and frontend development for various clients.",
-      technologies: ["HTML", "CSS", "JavaScript", "Figma", "Bootstrap"]
+      description: "Building responsive websites and web applications for local businesses. Focus on clean, modern design and user experience.",
+      technologies: ["HTML", "CSS", "JavaScript", "React", "Figma"]
     },
     {
-      title: "Student & Self-Learner",
+      title: "Student",
       company: "NHSS Kolathur",
       period: "2021 - Present",
-      description: "Currently pursuing 11th standard education while continuously learning modern web technologies and design principles through self-study and online resources.",
-      technologies: ["UI/UX Design", "HTML", "CSS", "JavaScript", "React"]
+      description: "Pursuing Higher Secondary Education with Science stream while developing frontend development skills.",
+      technologies: ["UI/UX Design", "Frontend Development", "Problem Solving"]
     }
   ];
 
   const education = [
     {
-      degree: "Higher Secondary Education (Science)",
+      degree: "Higher Secondary Education",
       institution: "NHSS Kolathur",
       period: "2021 - Present",
-      description: "Currently pursuing 11th standard with a focus on science subjects, while simultaneously developing skills in UI/UX design and frontend development."
+      description: "Science stream with focus on mathematics and computer applications."
     }
   ];
 
   return (
     <section id="experience" className="section experience">
       <div className="container">
-        <h2 className="section-title">Experience & Education</h2>
-        <div className="experience-content">
-          <div className="experience-section">
-            <h3 className="subsection-title">Professional Experience</h3>
-            <div className="timeline">
+        <div className="section-header">
+          <h2 className="section-title">Experience</h2>
+          <p className="section-subtitle">My professional journey and education</p>
+        </div>
+        
+        <div className="experience-grid">
+          <div className="experience-column">
+            <h3 className="column-title">Professional</h3>
+            <div className="items-list">
               {experiences.map((exp, index) => (
-                <div key={index} className="timeline-item">
-                  <div className="timeline-marker"></div>
-                  <div className="timeline-content">
-                    <h4 className="job-title">{exp.title}</h4>
-                    <p className="company">{exp.company}</p>
-                    <p className="period">{exp.period}</p>
-                    <p className="description">{exp.description}</p>
-                    <div className="technologies">
-                      {exp.technologies.map((tech, techIndex) => (
-                        <span key={techIndex} className="tech-tag">{tech}</span>
-                      ))}
-                    </div>
+                <div 
+                  key={index} 
+                  className={`experience-item ${visibleItems[`exp-${index}`] ? 'visible' : ''}`}
+                  data-item={`exp-${index}`}
+                  style={{ '--delay': `${index * 0.1}s` }}
+                >
+                  <div className="item-header">
+                    <h4 className="item-title">{exp.title}</h4>
+                    <span className="item-period">{exp.period}</span>
+                  </div>
+                  <p className="item-company">{exp.company}</p>
+                  <p className="item-description">{exp.description}</p>
+                  <div className="item-technologies">
+                    {exp.technologies.map((tech, techIndex) => (
+                      <span key={techIndex} className="tech-tag">{tech}</span>
+                    ))}
                   </div>
                 </div>
               ))}
             </div>
           </div>
           
-          <div className="education-section">
-            <h3 className="subsection-title">Education</h3>
-            <div className="timeline">
+          <div className="experience-column">
+            <h3 className="column-title">Education</h3>
+            <div className="items-list">
               {education.map((edu, index) => (
-                <div key={index} className="timeline-item">
-                  <div className="timeline-marker"></div>
-                  <div className="timeline-content">
-                    <h4 className="degree">{edu.degree}</h4>
-                    <p className="institution">{edu.institution}</p>
-                    <p className="period">{edu.period}</p>
-                    <p className="description">{edu.description}</p>
+                <div 
+                  key={index} 
+                  className={`experience-item ${visibleItems[`edu-${index}`] ? 'visible' : ''}`}
+                  data-item={`edu-${index}`}
+                  style={{ '--delay': `${(experiences.length + index) * 0.1}s` }}
+                >
+                  <div className="item-header">
+                    <h4 className="item-title">{edu.degree}</h4>
+                    <span className="item-period">{edu.period}</span>
                   </div>
+                  <p className="item-company">{edu.institution}</p>
+                  <p className="item-description">{edu.description}</p>
                 </div>
               ))}
             </div>

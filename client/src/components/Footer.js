@@ -1,5 +1,6 @@
 import React from 'react';
 import './Footer.css';
+import SocialIcon, { GitHubIcon, LinkedInIcon, InstagramIcon, EmailIcon } from './SocialIcon';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -15,22 +16,30 @@ const Footer = () => {
           <div className="footer-section">
             <h3>Nihan Najeeb P</h3>
             <p>
-              15-year-old UI/UX Designer & Frontend Developer from Kerala, India. 
-              Crafting beautiful and functional digital experiences.
+              That teenager from Kerala who turned late-night coding sessions into a career. 
+              Still can't believe people actually pay me to make websites!
             </p>
             <div className="social-links">
-              <a href="https://github.com/nihan2010" target="_blank" rel="noopener noreferrer">
-                GitHub
-              </a>
-              <a href="https://www.linkedin.com/in/nihan-najeeb-b287b22b9/" target="_blank" rel="noopener noreferrer">
-                LinkedIn
-              </a>
-              <a href="https://www.instagram.com/nhnneei/" target="_blank" rel="noopener noreferrer">
-                Instagram
-              </a>
-              <a href="mailto:nihannajeebpmkd@gmail.com">
-                Email
-              </a>
+              <SocialIcon 
+                href="https://github.com/nihan2010" 
+                icon={<GitHubIcon />} 
+                label="GitHub Profile"
+              />
+              <SocialIcon 
+                href="https://www.linkedin.com/in/nihan-najeeb-b287b22b9/" 
+                icon={<LinkedInIcon />} 
+                label="LinkedIn Profile"
+              />
+              <SocialIcon 
+                href="https://www.instagram.com/nhnneei/" 
+                icon={<InstagramIcon />} 
+                label="Instagram Profile"
+              />
+              <SocialIcon 
+                href="mailto:nihannajeebpmkd@gmail.com" 
+                icon={<EmailIcon />} 
+                label="Send Email"
+              />
             </div>
           </div>
           
@@ -45,12 +54,12 @@ const Footer = () => {
           </div>
           
           <div className="footer-section">
-            <h4>Technologies</h4>
+            <h4>Current Focus</h4>
             <ul className="footer-links">
               <li>React & JavaScript</li>
-              <li>Node.js & Express</li>
-              <li>MongoDB & MySQL</li>
-              <li>Python & Django</li>
+              <li>CSS Animations</li>
+              <li>Responsive Design</li>
+              <li>UI/UX Design</li>
             </ul>
           </div>
           
@@ -62,8 +71,8 @@ const Footer = () => {
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; {currentYear} Nihan Najeeb P. All rights reserved.</p>
-          <p>Built with React and lots of ☕</p>
+          <p>&copy; {currentYear} Nihan Najeeb P. Made with love and dedication</p>
+          <p>Built with React and modern web technologies</p>
         </div>
       </div>
     </footer>
