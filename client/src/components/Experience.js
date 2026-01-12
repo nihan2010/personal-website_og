@@ -34,22 +34,41 @@ const Experience = () => {
       description: "Building responsive websites and web applications for local businesses. Focus on clean, modern design and user experience.",
       technologies: ["HTML", "CSS", "JavaScript", "React", "Figma"]
     },
-    {
-      title: "Student",
-      company: "NHSS Kolathur",
-      period: "2021 - Present",
-      description: "Pursuing Higher Secondary Education with Science stream while developing frontend development skills.",
-      technologies: ["UI/UX Design", "Frontend Development", "Problem Solving"]
-    }
+    // {
+    //   title: "Student",
+    //   company: "NHSS Kolathur",
+    //   period: "2025 - Present",
+    //   description: "Pursuing Higher Secondary Education with Science stream while developing frontend development skills.",
+    //   technologies: ["UI/UX Design", "Frontend Development", "Problem Solving"]
+    // }
   ];
 
   const education = [
     {
+      degree: "Lower Primary Education",
+      institution: "AMLPS Moorkkanad",
+      period: "2015 - 2019",
+      description: "Focused on building core literacy and curiosity-driven learning as a foundation for future academic growth."
+    }
+    {
+      degree: "Upper Primary Education",
+      institution: "AEMUPS Moorkkanad",
+      period: "2019 - 2022",
+      description: "Developed strong analytical skills and a passion for logical reasoning and mathematics."
+    }
+    {
+      degree: "High School Education",
+      institution: "PTMYHSS EDAPPALAM",
+      period: "2022 - 2025",
+      description: "Achieved SSLC with Full A+ (10/10 GP), demonstrating consistent academic excellence and a disciplined approach to complex problem-solving."
+    }
+    {
       degree: "Higher Secondary Education",
       institution: "NHSS Kolathur",
-      period: "2021 - Present",
+      period: "2025 - Present",
       description: "Science stream with focus on mathematics and computer applications."
     }
+    
   ];
 
   return (
