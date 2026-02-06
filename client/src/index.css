@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+/* Default: light. Dark applied via body.dark-mode (set in HTML for default dark, no flash) */
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', 
     'Arial', 'Segoe UI', 'Roboto', sans-serif;
@@ -16,14 +17,26 @@ body {
   background: #ffffff;
   overflow-x: hidden;
   min-height: 100vh;
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: background-color 0.3s ease, color 0.3s ease;
   scroll-behavior: smooth;
 }
 
-/* Dark Mode Styles */
+/* Dark Mode Styles (default: body has class="dark-mode" in HTML to prevent flash) */
 body.dark-mode {
   color: #e5e7eb;
   background: #0a0a0a;
+}
+
+body.dark-mode ::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
 }
 
 body.dark-mode .section-title {
@@ -70,10 +83,9 @@ body.dark-mode .btn-secondary:hover {
   width: 100%;
 }
 
-/* Fix z-index issues */
+/* Header: fixed position for sticky nav; do not override with position:relative */
 .header {
-  position: relative !important;
-  z-index: 1000 !important;
+  z-index: 1000;
 }
 
 main {

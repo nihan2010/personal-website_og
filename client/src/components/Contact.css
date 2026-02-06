@@ -165,6 +165,12 @@
   border: 1px solid #fca5a5;
 }
 
+.form-hint {
+  margin: 0.75rem 0 0;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
 /* Dark Mode Styles */
 body.dark-mode .contact {
   background: transparent;
@@ -225,6 +231,10 @@ body.dark-mode .btn {
 
 body.dark-mode .btn:hover:not(:disabled) {
   background: #1d4ed8;
+}
+
+body.dark-mode .form-hint {
+  color: #9ca3af;
 }
 
 body.dark-mode .form-message.success {

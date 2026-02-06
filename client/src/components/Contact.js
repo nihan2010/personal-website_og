@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import './Contact.css';
 import SocialIcon, { GitHubIcon, LinkedInIcon, InstagramIcon } from './SocialIcon';
+
+const WHATSAPP_NUMBER = '918547137703';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,8 +10,6 @@ const Contact = () => {
     email: '',
     message: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState('');
 
   const handleChange = (e) => {
     setFormData({
@@ -19,22 +18,20 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('');
+    const { name, email, message } = formData;
+    const customMessage = `Hi, I'd like to get in touch.
 
-    try {
-      const response = await axios.post('/api/contact', formData);
-      if (response.data.success) {
-        setSubmitStatus('success');
-        setFormData({ name: '', email: '', message: '' });
-      }
-    } catch (error) {
-      setSubmitStatus('error');
-    }
-    
-    setIsSubmitting(false);
+*Name:* ${name}
+*Email:* ${email}
+
+*Message:*
+${message}`;
+    const encoded = encodeURIComponent(customMessage);
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
+    window.open(url, '_blank');
+    setFormData({ name: '', email: '', message: '' });
   };
 
   return (
@@ -131,25 +128,10 @@ const Contact = () => {
                 ></textarea>
               </div>
               
-              <button 
-                type="submit" 
-                className="btn btn-primary"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+              <button type="submit" className="btn btn-primary">
+                Send via WhatsApp
               </button>
-              
-              {submitStatus === 'success' && (
-                <p className="form-message success">
-                  Thank you for your message! I'll get back to you soon.
-                </p>
-              )}
-              
-              {submitStatus === 'error' && (
-                <p className="form-message error">
-                  Sorry, there was an error sending your message. Please try again.
-                </p>
-              )}
+              <p className="form-hint">Opens WhatsApp with your message so we can chat directly.</p>
             </form>
           </div>
         </div>

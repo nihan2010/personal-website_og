@@ -28,39 +28,21 @@ const Projects = () => {
 
   const projects = [
     {
+      title: "Mechanical Flip Clock",
+      description: "A high-fidelity, mechanical-style Flip Clock web application built with vanilla HTML, CSS, and JavaScript. Features a retro aesthetic with smooth, physics-based animations, \"glitch-free\" logic, and a fully responsive design.",
+      image: "/flipclock_card_cover.png",
+      technologies: ["HTML", "CSS", "JavaScript"],
+      liveUrl: "https://flipclock-peach.vercel.app/",
+      githubUrl: "https://github.com/nihan2010/flip-clock",
+      category: "Frontend"
+    },
+    {
       title: "Royal Decorations",
       description: "Professional website for an event decoration business with responsive image galleries and modern design.",
-      image: "https://nihannajeeb.github.io/portfolio/assets/images/project1.jpg",
+      image: "/royal_events_card_cover.png",
       technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
       liveUrl: "https://royaldecorations.github.io/site/",
-      githubUrl: "https://github.com/nihannajeeb/royal-decorations",
-      category: "Frontend"
-    },
-    {
-      title: "Portfolio Website",
-      description: "Clean, responsive portfolio showcasing projects and skills with smooth animations.",
-      image: "https://nihannajeeb.github.io/portfolio/assets/images/portfolio.jpg",
-      technologies: ["HTML", "CSS", "JavaScript", "UI/UX"],
-      liveUrl: "https://nihannajeeb.github.io/portfolio/",
-      githubUrl: "https://github.com/nihannajeeb/portfolio",
-      category: "Frontend"
-    },
-    {
-      title: "E-Commerce UI",
-      description: "Modern e-commerce interface design with focus on user experience and accessibility.",
-      image: "https://nihannajeeb.github.io/portfolio/assets/images/ecommerce.jpg",
-      technologies: ["Figma", "UI/UX", "Prototyping"],
-      liveUrl: "https://figma.com/design-link",
-      githubUrl: "https://github.com/nihannajeeb/ecommerce-ui",
-      category: "Design"
-    },
-    {
-      title: "Restaurant Website",
-      description: "Full-featured restaurant website with online ordering and menu management.",
-      image: "https://nihannajeeb.github.io/portfolio/assets/images/restaurant.jpg",
-      technologies: ["HTML", "CSS", "JavaScript"],
-      liveUrl: "https://restaurant-demo.com",
-      githubUrl: "https://github.com/nihannajeeb/restaurant-site",
+      githubUrl: "https://github.com/Royaldecorations/site",
       category: "Frontend"
     }
   ];

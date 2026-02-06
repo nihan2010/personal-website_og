@@ -16,8 +16,7 @@ const Footer = () => {
           <div className="footer-section">
             <h3>Nihan Najeeb P</h3>
             <p>
-              That teenager from Kerala who turned late-night coding sessions into a career. 
-              Still can't believe people actually pay me to make websites!
+              Web developer specializing in creating fast, modern, and responsive websites for individuals and small businesses.
             </p>
             <div className="social-links">
               <SocialIcon 
@@ -46,6 +45,7 @@ const Footer = () => {
           <div className="footer-section">
             <h4>Quick Links</h4>
             <ul className="footer-links">
+              <li><button onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}>Services</button></li>
               <li><button onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}>About</button></li>
               <li><button onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}>Skills</button></li>
               <li><button onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}>Projects</button></li>
@@ -71,8 +71,8 @@ const Footer = () => {
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; {currentYear} Nihan Najeeb P. Made with love and dedication</p>
-          <p>Built with React and modern web technologies</p>
+          <p>&copy; {currentYear} Nihan Najeeb P. All rights reserved.</p>
+          <p>Built with focus, discipline, and clean code.</p>
         </div>
       </div>
     </footer>

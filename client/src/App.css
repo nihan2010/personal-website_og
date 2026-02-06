@@ -8,6 +8,11 @@
   background: #ffffff;
 }
 
+/* Default dark: match body so no flash */
+body.dark-mode .App {
+  background: #0a0a0a;
+}
+
 main {
   flex: 1;
 }

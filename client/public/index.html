@@ -5,7 +5,7 @@
     <link rel="icon" href="https://i.ibb.co/HLzPtDNQ/nihandp.png" />
     <link rel="apple-touch-icon" href="https://i.ibb.co/HLzPtDNQ/nihandp.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#667eea" />
+    <meta name="theme-color" content="#0a0a0a" />
     
     <!-- Basic Meta Tags -->
     <meta name="description" content="Nihan Najeeb P - 15-year-old UI/UX Designer & Frontend Developer from Kerala, India. Crafting beautiful and functional digital experiences with modern web technologies." />
@@ -46,6 +46,10 @@
     <title>Nihan Najeeb P - UI/UX Designer & Frontend Developer</title>
   </head>
   <body>
+    <!-- Default dark: sync with localStorage before first paint to prevent flash -->
+    <script>
+      if (localStorage.getItem('darkMode') !== 'false') { document.body.classList.add('dark-mode'); }
+    </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     

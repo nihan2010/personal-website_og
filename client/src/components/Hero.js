@@ -2,7 +2,7 @@ import React from 'react';
 import './Hero.css';
 import SocialIcon, { GitHubIcon, LinkedInIcon, InstagramIcon, EmailIcon, PhoneIcon } from './SocialIcon';
 
-const Hero = () => {
+const Hero = ({ onGetQuote }) => {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -16,29 +16,23 @@ const Hero = () => {
         <div className="hero-content">
           <div className="hero-text">
             <h1 className="hero-title">
-              Hey! I'm <span className="highlight">Nihan</span>
+              I help individuals and small businesses build fast, modern, and responsive websites that convert.
             </h1>
             <p className="hero-subtitle">
-              16-year-old Web Designer & Developer from Kerala
-            </p>
-            <p className="hero-description">
-              I build websites that don't just work, they actually feel good to use! 
-              Started coding at 13 because I was tired of boring websites. Now I'm that teenager 
-              who gets way too excited about smooth animations and clean designs. 
-              Let's create something amazing together!
+              Student Web Developer | Clean Design • Fast Performance • Mobile First
             </p>
             <div className="hero-buttons">
               <button 
                 className="btn btn-primary"
-                onClick={() => scrollToSection('projects')}
+                onClick={onGetQuote}
               >
-                View My Work
+                Get a Quote
               </button>
               <button 
                 className="btn btn-secondary"
                 onClick={() => scrollToSection('contact')}
               >
-                Get In Touch
+                Contact Me
               </button>
             </div>
             <div className="hero-links">

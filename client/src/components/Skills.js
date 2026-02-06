@@ -3,9 +3,10 @@ import './Skills.css';
 
 const Skills = () => {
   const [visibleSkills, setVisibleSkills] = useState({});
+  const [visibleCategories, setVisibleCategories] = useState({});
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    const skillObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -20,10 +21,32 @@ const Skills = () => {
     );
 
     document.querySelectorAll('[data-skill]').forEach(el => {
-      observer.observe(el);
+      skillObserver.observe(el);
     });
 
-    return () => observer.disconnect();
+    return () => skillObserver.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const categoryObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleCategories(prev => ({
+              ...prev,
+              [entry.target.dataset.category]: true
+            }));
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    document.querySelectorAll('[data-category]').forEach(el => {
+      categoryObserver.observe(el);
+    });
+
+    return () => categoryObserver.disconnect();
   }, []);
 
   const skillCategories = [
@@ -66,7 +89,11 @@ const Skills = () => {
         
         <div className="skills-grid">
           {skillCategories.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="skill-category">
+            <div
+              key={categoryIndex}
+              className={`skill-category ${visibleCategories[categoryIndex] ? 'visible' : ''}`}
+              data-category={categoryIndex}
+            >
               <h3 className="category-title">{category.title}</h3>
               <div className="skills-list">
                 {category.skills.map((skill, skillIndex) => (
