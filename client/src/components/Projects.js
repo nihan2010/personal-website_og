@@ -27,6 +27,15 @@ const Projects = () => {
   }, []);
 
   const projects = [
+      {
+      title: "StudyForge",
+      description: "A smart SCERT syllabus tracking system for Kerala students with dynamic subject management, progress analytics, and customizable academic modes.",
+      image: "/flipclock_card_cover.png",
+      technologies: ["React", "Vite", "Tailwind CSS"],
+      liveUrl: "https://studyforgee.netlify.app/",
+      githubUrl: "https://github.com/nihan2010/studyforge",
+      category: "Frontend"
+    },
     {
       title: "Mechanical Flip Clock",
       description: "A high-fidelity, mechanical-style Flip Clock web application built with vanilla HTML, CSS, and JavaScript. Features a retro aesthetic with smooth, physics-based animations, \"glitch-free\" logic, and a fully responsive design.",
