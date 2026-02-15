@@ -30,7 +30,7 @@ const Projects = () => {
     {
       title: "StudyForge",
       description: "A smart SCERT syllabus tracking system for Kerala students with dynamic subject management, progress analytics, and customizable academic modes.",
-      image: "https://i.ibb.co/xxxxx/your-image-name.png",
+      image: "https://i.ibb.co/kgf0nwTn/Screenshot-2026-02-16-035524.png",
       technologies: ["React", "Vite", "Tailwind CSS"],
       liveUrl: "https://studyforgee.netlify.app/",
       githubUrl: "https://github.com/nihan2010/studyforge",
