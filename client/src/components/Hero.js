@@ -67,7 +67,7 @@ const Hero = ({ onGetQuote }) => {
             <div className="hero-image-container">
               <div className="profile-image-wrapper">
                 <img 
-                  src="https://i.ibb.co/HLzPtDNQ/nihandp.png" 
+                  //src="https://i.ibb.co/HLzPtDNQ/nihandp.png" 
                   alt="Nihan Najeeb P"
                   className="profile-image"
                 />
