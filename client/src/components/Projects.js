@@ -37,6 +37,22 @@ const Projects = () => {
       category: "Frontend"
     },
     {
+      title: "BuildStack",
+      description: "BuildStack analyzes any website URL and reveals its technology stack, frameworks, infrastructure, analytics tools, and scripts in seconds.",
+      image: "https://i.ibb.co/Tqd0KWcS/buildstack-card-cover.png",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Lucide React",
+        "Axios"
+      ],
+      liveUrl: "https://buildstack-7dej2z1ph-nihan2010s-projects.vercel.app",
+      githubUrl: "https://github.com/nihan2010/BuildStack",
+      category: "Full Stack"
+    },
+    {
       title: "Mechanical Flip Clock",
       description: "A high-fidelity, mechanical-style Flip Clock web application built with vanilla HTML, CSS, and JavaScript. Features a retro aesthetic with smooth, physics-based animations, \"glitch-free\" logic, and a fully responsive design.",
       image: "/flipclock_card_cover.png",
