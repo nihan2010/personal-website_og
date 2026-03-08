@@ -48,7 +48,7 @@ const Projects = () => {
         "Lucide React",
         "Axios"
       ],
-      liveUrl: "https://buildstack-7dej2z1ph-nihan2010s-projects.vercel.app",
+      liveUrl: "https://buildstack-kappa.vercel.app/",
       githubUrl: "https://github.com/nihan2010/BuildStack",
       category: "Full Stack"
     },
