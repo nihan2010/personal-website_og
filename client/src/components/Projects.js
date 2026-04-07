@@ -28,6 +28,15 @@ const Projects = () => {
 
     const projects = [
     {
+      title: "Interface IQ",
+      description: "AI-powered UI analysis platform that provides instant feedback on hierarchy, spacing, contrast, and accessibility. Features a community 'UI Arena' for sharing and rating designs.",
+      image: "/interface_iq_cover.png",
+      technologies: ["Next.js", "Tailwind CSS", "Gemini AI", "Prisma"],
+      liveUrl: "https://interfaceiq.vercel.app/",
+      githubUrl: "https://github.com/nihan2010/interface-iq",
+      category: "AI Web App"
+    },
+    {
       title: "StudyForge",
       description: "A smart SCERT syllabus tracking system for Kerala students with dynamic subject management, progress analytics, and customizable academic modes.",
       image: "https://i.ibb.co/kgf0nwTn/Screenshot-2026-02-16-035524.png",
